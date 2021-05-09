@@ -12,8 +12,7 @@ Example:
 Ranked = [100, 90, 90, 80]
 Player = [70, 80, 105]
 
-The ranked players will have ranks 1, 2, 2 and 3 respectively (Players with equal score have the same ranking). If the player's scores are 70, 80 and , 105 their rankings after each game
-are 4, 3 and 1. Return [4, 3, 1]
+The ranked players will have ranks 1, 2, 2 and 3 respectively (Players with equal score have the same ranking). If the player's scores are 70, 80 and , 105 their rankings after each game are 4, 3 and 1. Return [4, 3, 1]
 
 Edge cases:
 - If ranked array is empty - it means that you play alone and always take 1st place

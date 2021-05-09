@@ -3,7 +3,8 @@
 @implementation NSString (ValidNumber)
 
 - (BOOL)isValidNumber {
-    return false;
+    NSCharacterSet* notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    return self.length > 0 && [self rangeOfCharacterFromSet:notDigits].location == NSNotFound;
 }
 
 @end
