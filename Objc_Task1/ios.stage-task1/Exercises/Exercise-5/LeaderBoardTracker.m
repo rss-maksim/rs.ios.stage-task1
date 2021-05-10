@@ -17,24 +17,20 @@
         }
         return totalScore;
     }
-    long playerArrayIndex = 0;
-    while (playerArrayIndex < playerArray.count) {
-        NSNumber *playerScore = playerArray[playerArrayIndex];
-        long rankedArrayIndex = 0;
-        long currentRank = 1;
-        while (rankedArrayIndex < rankedArray.count) {
-            if (playerScore >= rankedArray[rankedArrayIndex]) {
+    NSMutableSet *rankedUniqueScore = NSMutableSet.set;
+    long j = playerArray.count - 1;
+    long i = 0;
+    while (j >= 0) {
+        while (i < rankedArray.count) {
+            if (playerArray[j].intValue < rankedArray[i].intValue) {
+                [rankedUniqueScore addObject:rankedArray[i]];
+            } else {
                 break;
             }
-            if (rankedArrayIndex < rankedArray.count - 1 && rankedArray[rankedArrayIndex] == rankedArray[rankedArrayIndex + 1]) {
-                rankedArrayIndex += 1;
-                continue;
-            }
-            rankedArrayIndex += 1;
-            currentRank += 1;
+            i += 1;
         }
-        [totalScore addObject:@(currentRank)];
-        playerArrayIndex += 1;
+        [totalScore insertObject:@(rankedUniqueScore.count + 1) atIndex:0];
+        j -= 1;
     }
     return totalScore;
 }
